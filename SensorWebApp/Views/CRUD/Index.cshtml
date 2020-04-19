@@ -1,0 +1,52 @@
+﻿@using System.Data
+@using System.Data.SqlClient
+@model System.Data.DataTable
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Home</title>
+</head>
+<body>
+    @{
+        if (Model.Rows.Count >= 0)
+        {
+            <table border="1">
+                <thead>
+                    <tr>
+                        <td>
+                            Distance
+                        </td>
+                        <td>
+                            Time
+                        </td>
+                    </tr>
+                </thead>
+                @foreach (DataRow dr in Model.Rows)
+                {
+                    <tr>
+                        <td>
+                            @dr["Distance"].ToString()
+                        </td>
+                        <td>
+                            @dr["Time"];
+                        </td>
+                    </tr>
+                }
+            </table>
+        }
+
+    }
+</body>
+</html>
+<script>
+    setTimeout(function() {
+        location.reload();
+    }, 5000);
+</script>
+
